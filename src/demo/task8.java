@@ -1,10 +1,9 @@
 package demo;
 
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
 
-public class task7 {
+public class task8 {
     public static void main(String[] args) {
         long num = 9876543210L;
 
@@ -13,11 +12,15 @@ public class task7 {
         }
 
         System.out.println(num);
-        System.out.println(Math.sqrt(num) % 2 == 0);
+        System.out.println(num % 2 == 0);
+        System.out.println(num % 3 == 0);
+        System.out.println(num % 5 == 0);
+        System.out.println(num % 7 == 0);
+        System.out.println(num % 11 == 0);
     }
 
     public static boolean isNum(long num) {
-        return Math.sqrt(num) % 2 == 0 && unique(num);
+        return num % 2 == 0 && num % 3 == 0 && num % 5 == 0 && num % 7 == 0 && num % 11 == 0 && unique(num);
     }
 
     public static boolean unique(long num) {
