@@ -30,8 +30,9 @@ public class task4 {
     }
 
     private static boolean isCorrect(int[] arr, int i) {
+        if (i + 2 >= number) return true;
         if (arr[i] < arr[i + 2]) {
-            return isCorrect(arr, i++);
+            return isCorrect(arr, i+2);
         }
         return false;
     }

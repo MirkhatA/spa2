@@ -3,7 +3,7 @@ package demo;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class task1 {
+public class task5 {
     static Scanner sc = new Scanner(System.in);
     static int totalResult = 0;
     static int number = sc.nextInt();
@@ -22,30 +22,28 @@ public class task1 {
             swap(arr, k, i);
         }
         if (k == arr.length - 1) {
-            System.out.print(Arrays.toString(arr) + " ");
-            sumBetweenNums(arr);
+            if (isCorrect(arr, 1)) {
+                System.out.println(Arrays.toString(arr) + " ");
+                totalResult = totalResult + 1;
+            }
         }
     }
 
-    public static void sumBetweenNums(int[] arr) {
-        int result = 1;
-
-        for (int i = 0; i < arr.length - 1; i++) {
-            result = result * (Math.abs(arr[i] - arr[i + 1]));
+    private static boolean isCorrect(int[] arr, int i) {
+        if (i + 2 >= number) return true;
+        if (arr[i] < arr[i + 2]) {
+            return isCorrect(arr, i+2);
         }
-        System.out.println(result);
-
-        if (result < Math.sqrt(factorial(number))) totalResult++;
+        return false;
     }
+
 
     public static void swap(int[] arr, int numOne, int numTwo) {
         int t = arr[numOne];
         arr[numOne] = arr[numTwo];
         arr[numTwo] = t;
     }
-
-    public static int factorial(int num) {
-        if (num >= 1) return num * factorial(num - 1);
-        return 1;
-    }
 }
+
+
+
